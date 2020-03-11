@@ -155,4 +155,10 @@ def simple_sort(data: List[int]) -> List[list]:
         simple_sort([2, 9, 6, 7, 3, 2, 1])
         >>> [1, 2, 2, 3, 6, 7, 9]
     """
-    return sorted(data)
+    srt = []
+
+    while data:
+        srt.append(min(data))
+        data.remove(min(data))
+
+    return srt
