@@ -80,6 +80,7 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
 
 
 
+
 def is_word_in_text(word: str, text: str) -> bool:
     """
     If text contain word return True
@@ -121,7 +122,7 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
         >>> [1, 5, 8]
     """
-    return [x for x in data if x>=0]
+    return [x for x in data if x>0]
 
 
 
@@ -134,9 +135,16 @@ def alphabet() -> dict:
         alphabet()
         >>> {"a": 1, "b": 2 ...}
     """
-    return dict([(1,'a'), (2,'b'),(3,'c'), (4,'d'), (5,'e'), (6, 'f'), (7, 'g'), (8, 'h'), (9, 'i'), (10, 'j'), (11, 'k'), (12, 'l'),
-                    (13, 'm'), (14, 'n'), (15, 'o'), (16, 'p'), (17, 'q'), (18, 'r'), (19, 's'), (20,'t'), (21, 'u'), (22, 'v'), (23, 'w'),
-                    (24, 'x'), (25, 'y'), (26, 'z')])
+    dic = {}
+    i = 0
+
+    for c in range(26):
+        i += 1
+        dic[i] = chr(i + 96)
+
+    return dic
+
+
 
 
 
@@ -147,4 +155,10 @@ def simple_sort(data: List[int]) -> List[list]:
         simple_sort([2, 9, 6, 7, 3, 2, 1])
         >>> [1, 2, 2, 3, 6, 7, 9]
     """
-    return sorted(data)
+    srt = []
+
+    while data:
+        srt.append(min(data))
+        data.remove(min(data))
+
+    return srt
