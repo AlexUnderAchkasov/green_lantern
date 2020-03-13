@@ -80,7 +80,6 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
 
 
 
-
 def is_word_in_text(word: str, text: str) -> bool:
     """
     If text contain word return True
