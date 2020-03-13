@@ -121,7 +121,7 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
         >>> [1, 5, 8]
     """
-    return [x for x in data if x>0]
+    return [x for x in data if x>=0]
 
 
 
