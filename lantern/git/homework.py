@@ -49,8 +49,8 @@ def multiple_ints(first_value: object, second_value: object) -> object:
     """
     try:
         return int(first_value)*int(second_value)
-    except ValueError:
-        print("Invalid input value")
+    except TypeError:
+        raise TypeError
 
 
 def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
@@ -76,7 +76,12 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
             print("Not valid input data")
         >>> "Not valid input data"
     """
-    return int(first_value)*int(second_value)
+    if str(first_value).isdigit() and str(second_value).isdigit() or (isinstance(first_value, bool) or
+                                                                      isinstance(second_value, bool)):
+        return int(first_value) * int(second_value)
+    else:
+        raise ValueError("Only ints, string digits or boolean")
+
 
 
 
@@ -94,7 +99,7 @@ def is_word_in_text(word: str, text: str) -> bool:
         is_word_in_text("Glad", "Nice to meet you ")
         >>> False
     """
-    return True if word in text else False
+    return word in text
     # if word in text:
     #     return True
     # else:
@@ -106,7 +111,7 @@ def some_loop_exercise() -> list:
     Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
     ls = []
-    for i in range(0, 12+1):
+    for i in range(0, 13):
         if i not in (6, 7):
             ls.append(i)
 
