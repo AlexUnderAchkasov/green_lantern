@@ -374,6 +374,5 @@ class House:
                 result += wall.number_of_rolls_of_wallpaper(roll_width_m, roll_length_m)
             return int(result)
 
-    @property
     def get_room_square(self):
         return self.get_walls_square() - self.get_windows_square() - self.get_door_square()
