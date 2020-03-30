@@ -89,12 +89,13 @@ class TestMoving:
     @pytest.mark.parametrize(
         "robot_direction,asteroid_size,robot_coordinates",
         (
-                ("W", (15, 25), (1, 24)),
-                ("S", (15, 25), (24, 1)),
-                ("E", (15, 25), (1, 24)),
+                ("W", (15, 25), (1, 1)),
+                ("S", (15, 25), (1, 1)),
+                ("E", (15, 25), (15, 1)),
         )
     )
     def test_check_if_robot_falls_from_asteroid(self, robot_direction, asteroid_size, robot_coordinates):
         with pytest.raises(RobotHasFallFromAsteroidError):
             asteroid = Asteroid(*asteroid_size)
-            Robot(*robot_coordinates, asteroid, *robot_direction)
+            robot = Robot(*robot_coordinates, asteroid, *robot_direction)
+            robot.move_forward()
