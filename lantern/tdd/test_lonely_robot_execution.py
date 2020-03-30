@@ -89,9 +89,10 @@ class TestMoving:
     @pytest.mark.parametrize(
         "robot_direction,asteroid_size,robot_coordinates",
         (
-                ("W", (15, 25), (1, 1)),
-                ("S", (15, 25), (1, 1)),
+                ("W", (15, 25), (1, 10)),
+                ("S", (15, 25), (10, 1)),
                 ("E", (15, 25), (15, 1)),
+                ("N", (15, 25), (10, 25))
         )
     )
     def test_check_if_robot_falls_from_asteroid(self, robot_direction, asteroid_size, robot_coordinates):
