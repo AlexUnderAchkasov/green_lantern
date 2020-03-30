@@ -44,7 +44,10 @@ class Robot:
         elif self.direction == "S":
             self.y -= 1
 
-        return self.y+self.x
+        if self.x > self.asteroid.x or self.y > self.asteroid.y or self.x < 1 or self.y < 1:
+            raise RobotHasFallFromAsteroidError()
+        else:
+            return self.y + self.x
 
     def move_back(self):
         if self.direction == "W":
@@ -56,13 +59,12 @@ class Robot:
         elif self.direction == "S":
             self.y += 1
 
-        if self.x > self.asteroid.x or self.y > self.asteroid.y or self.x < 1 or self.y < 1:
-            raise RobotHasFallFromAsteroidError()
-        else:
-            return self.y+self.x
+        return self.y + self.x
+
 
 class MissAsteroidError(Exception):
     pass
+
 
 class RobotHasFallFromAsteroidError(Exception):
     pass
