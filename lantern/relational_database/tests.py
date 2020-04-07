@@ -44,7 +44,6 @@ class TestSQLQueries(unittest.TestCase):
                 cursor.execute(f"DROP ROLE {user}")
             conn.commit()
 
-
     @staticmethod
     def create_test_database_and_role(conn):
         with conn.cursor() as cursor:
@@ -233,7 +232,8 @@ class TestSQLQueries(unittest.TestCase):
         for i, row in enumerate(actual_result):
             self.assertDictEqual(row, expected_result[i])
 
-    def load_rows_from_file(self, file_name):
+    @staticmethod
+    def load_rows_from_file(file_name):
         file = os.path.join(FIXTURES_PATH, "tests_results", file_name)
         with open(file) as json_file:
             data = json.load(json_file)
